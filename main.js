@@ -845,7 +845,25 @@ function criaArray(num) {
 // Para esse exemplo, o retorno deveria ser 2 + 2 + 2 + 4 + 5 + 6 = 21
 
 function arrayHash(arr) {
-
+    let alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+    let arrayFinal = []
+    let somaFinal = 0;
+    let valor = 0;
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr[i].length; j++) {
+            for (let k = 0; k < alphabet.length; k++) {
+                if (arr[i][j] === alphabet[k]) {
+                    valor = k + j + i
+                }
+            }
+            arrayFinal.push(valor)
+            valor = 0;
+        }
+    }
+    for (let i = 0; i < arrayFinal.length; i++) {
+        somaFinal = somaFinal + arrayFinal[i]
+    }
+    return somaFinal;
 }
 
 // Repetidos
