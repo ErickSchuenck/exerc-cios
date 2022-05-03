@@ -897,11 +897,9 @@ function verificaRepetidos(lst) {
 function consertaBug(str) {
     let array = str.split('')
     let pontoInicial = (array.length / 2);
-    let arrayFinal = [];
     let primeiraMetade = [];
     let segundaMetade = [];
     let InsertIndex = pontoInicial;
-    // console.log(pontoInicial)
     for (let i = pontoInicial; i > 0; i--) {
         InsertIndex--
         primeiraMetade.push(array[InsertIndex])
@@ -914,4 +912,6 @@ function consertaBug(str) {
         primeiraMetade.push(segundaMetadeInvertida[i])
     }
     return primeiraMetade.join('')
+
+    // FIX ME - Sintaxe ficou horrível de se ler
 }
