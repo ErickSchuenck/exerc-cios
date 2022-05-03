@@ -883,3 +883,35 @@ function verificaRepetidos(lst) {
     }
     return false
 }
+
+
+// Strings de dentro para fora
+// Crie a função consertaBug(str), que recebe uma frase que está escrita 'de dentro para fora' e deve transformá - la na frase escrita de forma correta.
+// Uma string escrita de dentro para fora, tem o começo no meio e o meio no final:
+// "dentro para fora" => "p ortnedarof ara"
+// Ex:
+// str = "CBAFED" => Deve retornar "ABCDEF"
+// srr = "asaCaL lepaPeD" => Deve retornar "LaCasaDePapel "
+// Você pode considerar que a entrada vai ser sempre uma string de tamanho par.
+
+function consertaBug(str) {
+    let array = str.split('')
+    let pontoInicial = (array.length / 2);
+    let arrayFinal = [];
+    let primeiraMetade = [];
+    let segundaMetade = [];
+    let InsertIndex = pontoInicial;
+    // console.log(pontoInicial)
+    for (let i = pontoInicial; i > 0; i--) {
+        InsertIndex--
+        primeiraMetade.push(array[InsertIndex])
+    }
+    for (let i = pontoInicial; i < array.length; i++) {
+        segundaMetade.push(array[i])
+    }
+    segundaMetadeInvertida = segundaMetade.reverse()
+    for (let i = 0; i < segundaMetadeInvertida.length; i++) {
+        primeiraMetade.push(segundaMetadeInvertida[i])
+    }
+    return primeiraMetade.join('')
+}
