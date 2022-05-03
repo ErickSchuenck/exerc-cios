@@ -843,3 +843,25 @@ function criaArray(num) {
 // 5 = 3 + 1 + 1 : 'D' tem valor 3, está na posição 1, da string 1
 // 6 = 3 + 2 + 1 : 'D' tem valor 3, está na posição 2, da string 1
 // Para esse exemplo, o retorno deveria ser 2 + 2 + 2 + 4 + 5 + 6 = 21
+
+function arrayHash(arr) {
+
+}
+
+// Repetidos
+// Crie uma função chamada verificaRepetidos(lst), que recebe uma lista de números e verifica se algum valor se repete nessa lista.Caso existam valores repetidos, retorne true, em caso contrário false.
+//     Ex:
+// lst = [1, 2, 3, 2, 5, 6] => Deve retornar true
+// lst = [1, 2, 3, 4, 5, 6] => Deve retornar false
+// lst = [1] => Deve retornar false
+// lst = [] => Deve retornar false
+
+function verificaRepetidos(lst) {
+    let arr = lst.sort(function (a, b) { return a - b });
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === arr[i + 1]) {
+            return true
+        }
+    }
+    return false
+}
