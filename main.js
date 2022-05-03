@@ -730,15 +730,15 @@ function contaStrings(lst) {
 // Escreva uma função chamada criaMatriz(num), que recebe um inteiro positivo e cria uma matriz seguindo o padrão:
 
 function criaMatriz(num) {
-    let matF = [];
+    let matFinal = [];
     for (let y = 0; y < num; y++) {
-        let matI = [];
-        for (let x = 0; x < num; x++) {
-            matI.push(2 ** x)
+        let matInicial = [];
+        for (let x = y; x < num + y; x++) {
+            matInicial.push(2 ** x)
         }
-        matF.push(matI)
+        matFinal.push(matInicial)
     }
-    return matF
+    return matFinal
 }
 
 // Para No Dobro
