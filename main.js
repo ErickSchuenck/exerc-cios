@@ -915,3 +915,32 @@ function consertaBug(str) {
 
     // FIX ME - Sintaxe ficou horrível de se ler
 }
+
+// Tem reverso
+// Crie uma função chamada temReverso(lst) que recebe uma lista e verifica se entre as strings da lista existe alguma que aparece escrita normalmente e escrita da maneira reversa.
+//     Ex:
+// lst = ['mar', 'mato', 'otam', 'lar'] => Deve retornar true
+// lst = ['casa', 'arara', 'papel'] => Deve retornar false
+// lst = ['correr', 'sorrir', 'pular', 'rir', 'ralup', 'sair'] => Deve retornar true
+// lst = ['rir', 'ir'] => Deve retornar false
+// lst = ['rir', 'ir', 'rir'] => Deve retornar true
+
+function temReverso(lst) {
+
+    let reversedArr = []
+    let reversedArrOfStrings = []
+    for (let i = 0; i < lst.length; i++) {
+        reversedArr.push(lst[i].split('').reverse())
+    }
+    for (let i = 0; i < reversedArr.length; i++) {
+        reversedArrOfStrings.push(reversedArr[i].join(''))
+    }
+    for (let i = 0; i < reversedArrOfStrings.length; i++) {
+        for (let j = 0; j < lst.length; j++) {
+            if (reversedArrOfStrings[i] === lst[j] && i !== j) {
+                return true
+            }
+        }
+    }
+    return false
+}
