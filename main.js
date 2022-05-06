@@ -944,3 +944,86 @@ function temReverso(lst) {
     }
     return false
 }
+
+// Valida senha
+// Modifique a função ao lado para que ela seja capaz de validar uma senha.Uma senha precisa conter pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial.A senha também deve conter no mínimo 8 caracteres.Enquanto a função não validar a senha ela deve imprimir "Senha Inválida" e perguntar uma nova senha ao usuário.Quando a senha for inserida corretamente pelo usuário a função deve ser finalizada e deve retornar 1.
+
+// Obs.: O parâmetro hub contém a função auxiliar para essa questão.
+//     Ex:
+// Se a senha é 'Aa0!' => Deve retornar "Senha Inválida" e perguntar uma nova senha ao usuário
+// Se a senha é 'Aaaaaa0!' => Deve finalizar a execução e retornar 1
+
+// function validaSenha(hub) {
+//     const letrasMaiusculas = /[A-Z]/
+//     const letrasMinusculas = /[a-z]/
+//     const numeros = /[0-9]/
+//     const charEspeciais = /[!|@|#|$|%|^|&|*|(|)|-|_]/
+//     hub = hub.split('');
+//     let senha = perguntaSenha(hub)
+//     return 1;
+// }
+
+// function perguntaSenha(hub) {
+//     console.log(hub)
+//     contemCaractereEspecial = false;
+//     contemLetraMaiuscula = false;
+//     contemLetraMinuscula = false;
+//     contemNumero = false;
+
+//     for (let i = 0; i < hub.length; i++) {
+//         for (let j = 0; j < hub.length; j++){
+//             if (hub[i] === ) { }
+//         }
+
+//     }
+// }
+
+let hub = 'eriguerrrrrrr'
+
+function validaSenha(hub) {
+    const letrasMaiusculas = /[A-Z]/
+    const letrasMinusculas = /[a-z]/
+    const numeros = /[0-9]/
+    const charEspeciais = /[!|@|#|$|%|^|&|*|(|)|-|_]/
+
+    let contemCaractereEspecial = false;
+    let contemLetraMaiuscula = false;
+    let contemLetraMinuscula = false;
+    let contemNumero = false;
+
+    let senha = perguntaSenha(hub.split(''))
+    function perguntaSenha(hub) {
+        for (let i of letrasMaiusculas) {
+            if (hub.includes(i)) {
+                contemLetraMaiuscula = true;
+            }
+        }
+        for (let i of letrasMinusculas) {
+            if (hub.includes(i)) {
+                contemLetraMinuscula = true;
+            }
+        }
+        for (let i of numeros) {
+            if (hub.includes(i)) {
+                contemNumero = true;
+            }
+        }
+        for (let i of charEspeciais) {
+            if (hub.includes(i)) {
+                contemCaractereEspecial = true;
+            }
+        }
+        if (contemCaractereEspecial === true
+            && contemLetraMaiuscula === true
+            && contemLetraMinuscula === true
+            && contemNumero === true
+            && hub.length > 7) {
+            return 1
+        } else {
+            console.log("Senha Inválida");
+            perguntaSenha(hub)
+        }
+    }
+
+    return senha;
+}
