@@ -1027,3 +1027,64 @@ function validaSenha(hub) {
 
     return senha;
 }
+
+// Notas
+// Um professor, após terminar a correção das provas da turma, quer a sua ajuda para analisar as notas dos alunos.
+// Ele quer descobrir qual é a nota mais comum entre os alunos na sua última prova.Todas as notas são inteiros entre 0 e 10(inclusive)
+// Se existir mais de uma nota mais frequente, você deve retornar a maior nota(entre as mais frequentes).
+//     Ex:
+// lst = [20, 80, 80, 10, 20] => Deve retornar 80
+// lst = [20, 25, 85, 40, 25, 90, 25, 40, 55, 40] => Deve retornar 40
+// lst = [10, 10, 10, 40, 40, 5, 5, 5] => Deve retornar 10
+
+const lst = [20, 80, 80, 10, 11, 12, 50, 50];
+
+// function maisFrequente(lst) {
+//     let mostFrequentNumber = 0;
+//     let mostFrequentNumberCount = 0;
+//     let count = 0;
+//     for (let i = 0; i < lst.length; i++) {
+//         for (let j = 0; j < lst.length; j++) {
+//             if (lst[i] === lst[j]) {
+//                 count++
+//             }
+//             if (count > mostFrequentNumberCount) {
+//                 mostFrequentNumberCount = count;
+//                 mostFrequentNumber = lst[i]
+//             }
+//             count = 0;
+//         }
+
+//     }
+//     return mostFrequentNumber;
+// }
+
+function maisFrequente(lst) {
+    let sortedArray = lst.sort((a, b) =>
+        lst.filter(v => v === a).length
+        - lst.filter(v => v === b).length
+    )
+    // let newlist = []
+    // for (let i = 0; i < sortedArray.length; i++) {
+    //     if (newlist.includes(sortedArray[i])) {
+    //     } else {
+    //         newlist.push(lst[i])
+    //     }
+    // }
+    // return newlist;
+    return sortedArray
+}
+
+// LED
+// João quer montar um painel contendo um número feito de LEDs.
+// Ele não tem muitos LEDs e ele precisa saber quantos LEDs serão necessários para ele montar o número que deseja.
+// Ajude João montando um algoritmo que a partir de um número inteiro não - negativo de entrada e considerando a configuração de cada número abaixo, calcule o número minimo de LEDs necessários para que João consiga montar seu painel.
+// Chame sua função de contaLeds(num).
+//     Ex:
+// num = 15 => Deve retornar 7
+// num = 115 => Deve retornar 9
+// num = 115380 => Deve retornar 27
+
+function contaLeds(num) {
+
+}
