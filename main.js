@@ -1119,17 +1119,11 @@ function contaLeds(num) {
 // Cumes e Vales
 // Um professor de geologia reparou que em um terreno de cumes e vales andando reto em uma direção ele conseguia encontrar um padrão na variação de altura desses morros.Ele percebeu que a cada 100 metros ele se encontrava em um cume e que sempre existia um vale no meio entre dois cumes.Isso significa que a cada 50 metros durante todo o percurso ele estará em cima de um vale ou no fundo de um cume.Não existe nenhum cume seguido por outro cume, nem nenhum vale seguido por outro vale.
 
-
-
 // Esse professor ficou curioso com esse padrão e gostaria de saber se ele ocorre em outras direções.Sua tarefa é: dada uma array representando uma séria de medições com as alturas da caminhada em outras direções, indicar se nessas direções existe ou não esse padrão.
 
 // A array é composta por diversos números inteiros positivos e negativos que representam as alturas medidas a cada 50 metros.Uma medida é considerada cume se é maior que a medida anterior e é considerada um vale se é mais baixa que a anterior.
 
-
-
 // Sua função deve retornar true, caso exista o padrão na array, e false, caso contrário
-
-
 
 // Ex:
 
@@ -1141,3 +1135,23 @@ function contaLeds(num) {
 // arr = [2, 1] => Deve retornar true
 // arr = [1, 2] => Deve retornar true
 // arr = [4] => Deve retornar false
+
+function temPadrao(arr) {
+    if (arr.length < 2) {
+        return false
+    }
+    if (arr.length === 2 && arr[0] !== arr[1]) {
+        return true
+    }
+    if (arr.length === 2 && arr[0] === arr[1]) {
+        return false
+    }
+
+    for (let i = 0; i < arr.length - 2; i++) {
+        if ((arr[i] > arr[i + 1] && arr[i + 1] < arr[i + 2]) || (arr[i] < arr[i + 1] && arr[i + 1] > arr[i + 2])) { }
+        else {
+            return false
+        }
+    }
+    return true
+}
