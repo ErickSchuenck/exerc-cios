@@ -1155,3 +1155,70 @@ function temPadrao(arr) {
     }
     return true
 }
+
+// O problema da Dama
+// Em um jogo de Xadrez existem diversas peças com movimentos curiosos.Uma dessas peças é a Dama, que pode ser movimentada por qualquer número de casas em qualquer direção: na mesma linha, na mesma coluna ou em qualquer uma das diagonais, como demonstrado na figura abaixo:
+
+
+
+// O grande mestre de xadrez Kary Gasparov inventou um novo problema de xadrez: dado a posição de uma dama em um tabuleiro vazio, quantos movimentos são necessários para que a dama consiga atingir outra casa no tabuleiro ?
+
+//     Kary conseguiu a solução para algumas posições, mas está tendo dificuldade com outras, e por isso veio pedir sua ajuda para escrever um algoritmo que resolva esse problema.
+
+//         Input:
+
+// Sua função receberá duas listas contendo[X1, Y1] e[X2, Y2].Onde X1, Y1 representam a casa em que a dama está e X2, Y2 representam a casa em que a dama quer chegar.No tabuleiro as colunas são numeradas de 1 a 8, da esquerda para a direita; as linhas também são numeradas de 1 a 8, de cima para baixo.Uma casa é representada por uma linha X e uma coluna Y.
+
+//     Output:
+
+// Seu programa deve retornar um número indicando a quantidade de movimentos necessários para a Dama chegar na casa final.
+
+//     Ex:
+
+// casaIni = [3, 3], casaFin = [3, 3] => Deve retornar 0
+// casaIni = [4, 5], casaFin = [4, 8] => Deve retornar 1
+// casaIni = [2, 1], casaFin = [4, 5] => Deve retornar 2
+
+// function numMov(casaIni, casaFin) {
+//     let XInicial = casaIni[0]
+//     let XFinal = casaFin[0]
+//     let YInicial = casaIni[1]
+//     let YFinal = casaFin[1]
+//     console.log(XInicial, XFinal, YInicial, YFinal)
+
+//     if (XInicial === XFinal && YInicial === YFinal) {
+//         return 0
+//     }
+
+//     if (XInicial === XFinal) {
+//         return (YInicial - YFinal)
+//     }
+// }
+
+function numMov(casaIni, casaFin) {
+
+    let XInicial = casaIni[0]
+    let XFinal = casaFin[0]
+    let YInicial = casaIni[1]
+    let YFinal = casaFin[1]
+
+    if (XInicial === XFinal && YInicial === YFinal) {
+        return 0
+    }
+
+    if ((XInicial === XFinal && YInicial !== YFinal) || (XInicial !== XFinal && YInicial === YFinal)) {
+        return 1
+    }
+
+    if (XInicial + YInicial === XFinal + YFinal) {
+        return 1
+    }
+
+    if (XInicial - YInicial === XFinal - YFinal) {
+        return 1
+    }
+
+    if ((XInicial !== XFinal && YInicial !== YFinal)) {
+        return 2
+    }
+}
