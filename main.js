@@ -1245,13 +1245,12 @@ function checkPosition(A, B, C, D, pontos) {
     let listaDeCoordenadasX = [A[0], B[0], C[0], D[0]]
     let maiorX = listaDeCoordenadasX.sort(function (a, b) { return a - b }).pop()
     let menorX = listaDeCoordenadasX.sort(function (a, b) { return a - b }).shift()
+
     let listaDeCoordenadasY = [A[1], B[1], C[1], D[1]]
     let maiorY = listaDeCoordenadasY.sort(function (a, b) { return a - b }).pop()
     let menorY = listaDeCoordenadasY.sort(function (a, b) { return a - b }).shift()
-    console.log('MaiorX', maiorX, 'MaiorY', maiorY, 'MenorX', menorX, 'MenorY', menorY)
 
     let contagem = 0;
-    let lista = []
 
     for (let i = 0; i < pontos.length; i++) {
 
@@ -1264,10 +1263,8 @@ function checkPosition(A, B, C, D, pontos) {
             pontoY <= maiorY
         ) {
             contagem++
-            lista.push(i)
         }
     }
-    console.log(lista)
     return contagem
 }
 
@@ -1291,4 +1288,59 @@ function checkPosition(A, B, C, D, pontos) {
 
 function jogar(ponte, passos) {
 
+}
+
+// O melhor salgado de todos os tempos, no turno da manhã
+
+// Kleberson e Marta estão enfrentando um grande dilema, os dois são sócios numa maravilhosa lanchonete e não conseguem chegar à conclusão de qual é o melhor salgados de todos os tempos, no turno da manhã.Após dias de discussão e várias enquetes entre seus clientes, Marta pediu sua ajuda para resolver essa história de uma vez por todas.
+
+// Marta irá fornecer as notinhas da máquina do caixa de um dia, essa nota agrupa a quantidade de cada salgado vendido no espaço de uma hora em cada turno.
+
+//     Entrada
+
+// A entrada será uma lista de textos onde o início de cada turno é representado pelas letras M(manhã), T(tarde), N(noite) que virão sempre nessa ordem.Após a letra do turno existem N valores inteiros, o primeiro valor é o total de salgados vendidos naquele turno, depois textos que representam a quantidade de cada salgado vendido por hora.O texto da quantidade total de salgados é representado por um valor numérico, seguido por um espaço, da letra de cada salgado, sendo elas: C(coxinha), R(risolis) e P(pastel).
+
+//     Saída
+
+// A saída deve ser uma lista com a quantidade total de cada salgado, vendido no turno da manhã, na ordem: Coxinha, Risolis e Pastel.Pode ser que algum / alguns salgados não tenham sido vendidos de manhã.
+
+//     Ex 1:
+
+// Entrada: arr = ['M', '40', '10 C', '6 R', '14 P', '20 C', 'T', '20', '20 C', 'N', '20', '20 P']
+
+// Saída: [30, 6, 14].Porque, de manhã, foram vendidos 10 + 20=30 coxinhas, 6 risolis e 14 pastéis
+
+// Ex 2:
+
+// Entrada: arr = ['M', '40', '10 C', '14 P', '20 C', 'T', '20', '20 C', 'N', '20', '20 P']
+
+// Saída: [30, 0, 14].
+
+//     Ex 3:
+
+// Entrada: arr = ['M', 'T', '20', '20 C', 'N', '20', '20 P']
+
+// Saída: [0, 0, 0].
+
+function contaSalgado(arr) {
+    let manha = [];
+    let c = 0;
+    let r = 0;
+    let p = 0;
+    for (let i = 0; arr[i] !== "T"; i++) {
+        manha.push(arr[i])
+    }
+    for (let j = 0; j < manha.length; j++) {
+        let element = manha[j].split(' ');
+        if (element[1] === "C") {
+            c += Number(element[0])
+        }
+        if (element[1] === "R") {
+            r += Number(element[0])
+        }
+        if (element[1] === "P") {
+            p += Number(element[0])
+        }
+    }
+    return [c, r, p]
 }
