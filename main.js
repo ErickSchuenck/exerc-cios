@@ -1060,19 +1060,12 @@ const lst = [20, 80, 80, 10, 11, 12, 50, 50];
 // }
 
 function maisFrequente(lst) {
-    let sortedArray = lst.sort((a, b) =>
+    lst = lst.sort(function (a, b) { return a - b })
+    lst = lst.sort((a, b) =>
         lst.filter(v => v === a).length
         - lst.filter(v => v === b).length
     )
-    // let newlist = []
-    // for (let i = 0; i < sortedArray.length; i++) {
-    //     if (newlist.includes(sortedArray[i])) {
-    //     } else {
-    //         newlist.push(lst[i])
-    //     }
-    // }
-    // return newlist;
-    return sortedArray
+    return lst.pop()
 }
 
 // LED
@@ -1086,5 +1079,65 @@ function maisFrequente(lst) {
 // num = 115380 => Deve retornar 27
 
 function contaLeds(num) {
-
+    let arr = num.toString().split('')
+    numF = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === '1') {
+            numF += 2
+        }
+        if (arr[i] === '2') {
+            numF += 5
+        }
+        if (arr[i] === '3') {
+            numF += 5
+        }
+        if (arr[i] === '4') {
+            numF += 4
+        }
+        if (arr[i] === '5') {
+            numF += 5
+        }
+        if (arr[i] === '6') {
+            numF += 6
+        }
+        if (arr[i] === '7') {
+            numF += 3
+        }
+        if (arr[i] === '8') {
+            numF += 7
+        }
+        if (arr[i] === '9') {
+            numF += 6
+        }
+        if (arr[i] === '0') {
+            numF += 6
+        }
+    }
+    return numF
 }
+
+// Cumes e Vales
+// Um professor de geologia reparou que em um terreno de cumes e vales andando reto em uma direção ele conseguia encontrar um padrão na variação de altura desses morros.Ele percebeu que a cada 100 metros ele se encontrava em um cume e que sempre existia um vale no meio entre dois cumes.Isso significa que a cada 50 metros durante todo o percurso ele estará em cima de um vale ou no fundo de um cume.Não existe nenhum cume seguido por outro cume, nem nenhum vale seguido por outro vale.
+
+
+
+// Esse professor ficou curioso com esse padrão e gostaria de saber se ele ocorre em outras direções.Sua tarefa é: dada uma array representando uma séria de medições com as alturas da caminhada em outras direções, indicar se nessas direções existe ou não esse padrão.
+
+// A array é composta por diversos números inteiros positivos e negativos que representam as alturas medidas a cada 50 metros.Uma medida é considerada cume se é maior que a medida anterior e é considerada um vale se é mais baixa que a anterior.
+
+
+
+// Sua função deve retornar true, caso exista o padrão na array, e false, caso contrário
+
+
+
+// Ex:
+
+// arr = [1, 4, -2] => Deve retornar true
+// arr = [100, 99, 112, -8, -7] => Deve retornar true
+// arr = [1, 2, 2, 1] => Deve retornar false
+// arr = [-10, -8, -15, 10, 5, 6, -6] => Deve retornar true
+// arr = [] => Deve retornar false
+// arr = [2, 1] => Deve retornar true
+// arr = [1, 2] => Deve retornar true
+// arr = [4] => Deve retornar false
