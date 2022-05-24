@@ -1222,3 +1222,73 @@ function numMov(casaIni, casaFin) {
         return 2
     }
 }
+
+// Checagem de posição
+// Antes de um torneio de robótica, seu professor propôs que você criasse um código capaz de detectar se um determinado robô invadiu uma área definida por 4 pontos(A, B, C e D).Os quatro pontos serão informados e formarão um retângulo conforme a imagem abaixo.As coordenadas X e Y do robô serão informadas(quadrado vermelho na figura).Atenção: nem sempre o ponto A será o esquerdo inferior do retângulo, nem sempre B será o direito inferior, etc.
+
+// Entrada
+// Seu programa recebe cinco entradas.Os pontos A, B, C e D, que são listas com dois elementos([x, y]), e uma lista de listas com os pontos que o robô visitou.
+//     Saída
+// O programa deve retornar, a partir da lista de pontos que o robô visitou, quantas vezes o robô esteve dentro da área formada por esses quatro pontos(considerando as bordas como parte dessa área).Todas as coordenadas sempre estarão entre 1 e 10.
+// Ex:
+// A = [3, 6], B = [6, 6], C = [6, 5], D = [3, 5], pontos = [[1, 1], [5, 4], [6, 6], [4, 5], [2, 2], [7, 7]] => Deve retornar 3
+
+
+let A = [3, 6];
+let B = [6, 6];
+let C = [6, 5];
+let D = [3, 5];
+let pontos = [[1, 1], [5, 4], [6, 6], [4, 5], [2, 2], [7, 7]]
+
+function checkPosition(A, B, C, D, pontos) {
+
+    let listaDeCoordenadasX = [A[0], B[0], C[0], D[0]]
+    let maiorX = listaDeCoordenadasX.sort(function (a, b) { return a - b }).pop()
+    let menorX = listaDeCoordenadasX.sort(function (a, b) { return a - b }).shift()
+    let listaDeCoordenadasY = [A[1], B[1], C[1], D[1]]
+    let maiorY = listaDeCoordenadasY.sort(function (a, b) { return a - b }).pop()
+    let menorY = listaDeCoordenadasY.sort(function (a, b) { return a - b }).shift()
+    console.log('MaiorX', maiorX, 'MaiorY', maiorY, 'MenorX', menorX, 'MenorY', menorY)
+
+    let contagem = 0;
+    let lista = []
+
+    for (let i = 0; i < pontos.length; i++) {
+
+        let pontoX = pontos[i][0]
+        let pontoY = pontos[i][1]
+
+        if (pontoX <= maiorX &&
+            pontoX >= menorX &&
+            pontoY >= menorY &&
+            pontoY <= maiorY
+        ) {
+            contagem++
+            lista.push(i)
+        }
+    }
+    console.log(lista)
+    return contagem
+}
+
+// Um jogo muito suspeito
+// Um grupo misterioso pediu sua ajuda para validar um novo tipo de jogo, porém devido a questões de privacidade eles não podem revelar exatamente como será esse jogo, você recebeu apenas alguns detalhes.A única coisa que você sabe é que dado uma ponte com dois caminhos possíveis, esquerda ou direita, você deve verificar se o caminho escolhido por um jogador teve um final feliz ou não.
+
+//     Entrada
+
+// Sua função irá receber dois parametros de entrada, o primeiro é uma lista de listas onde cada lista interna possui exatamente dois elementos, sendo eles true ou false.Valores true representam um caminho válido e valores false representam caminhos inválidos.O segundo parametro é uma lista de números inteiros E, tal que 0 ≤ E ≤ 1, que representa 0 para a esquerda e 1 para a direita.
+//     Saída
+// Caso todas as escolhas do jogador sejam em caminhos válidos a saída deve ser:) , caso contrário deve ser: (
+//     Ex.:
+
+// Entrada:
+
+// primerio parametro: [[true, false], [true, false], [false, true], [false, true]]
+
+// segundo parametro: [0, 0, 1, 1]
+
+// Saída: :)
+
+function jogar(ponte, passos) {
+
+}
