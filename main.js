@@ -1447,3 +1447,16 @@ function figurinhasFaltantes(n, lst) {
 // ord = [2, 1], instrucoes = [1, 1], mov = [[1, 1], [1, 0]] => Deve retornar que o ganhador foi 2: na primeira rodada, o chefe ordenou "1" e as duas crianças acertaram; na segunda rodada, o chefe ordenou "1" de novo, mas agora a primeira criança na fila acertou(executou "1") e a segunda errou(executou "0"), daí foi eliminada e a fila ficou[2], por isso o ganhador é 2.
 
 // ord = [3, 2, 1, 4, 5], instrucoes = [1, 0, 0, 1], mov = [[1, 1, 1, 1, 1], [0, 1, 0, 1, 0], [0, 1, 0], [0, 1]] => Deve retornar que o ganhador foi 5
+
+
+function descobreGanhador(ord, instrucoes, mov) {
+    let vencedores = ord
+    for (let i = 0; i < mov.length; i++) {
+        for (let j = mov[i].length - 1; j >= 0; j--) {
+            if (instrucoes[i] !== mov[i][j]) {
+                vencedores.splice(j, 1)
+            }
+        }
+    }
+    return vencedores[0]
+}
