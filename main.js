@@ -1485,8 +1485,6 @@ function descobreGanhador(ord, instrucoes, mov) {
 // ____________
 // ____________
 
-const coluna = 1
-const arr = [1, 4]
 function desenhar(coluna, arr) {
     for (let y = 0; y < 12; y++) {
         let line = []
@@ -1500,4 +1498,43 @@ function desenhar(coluna, arr) {
         console.log(line.join(''))
         line = []
     }
+}
+
+// Descriptografia
+// Você e seu crush desenvolveram um método revolucionário para conversarem via texto de modo seguro, sem que o Mark Zuckerberg saiba o conteúdo da conversa.Cada mensagem é enviada com uma lista de palavras onde cada palavra aponta para a próxima.A frase termina quando uma palavra aponta para a posição 0.
+
+// Entrada
+// A entrada é composta por um parâmetro numérico inteiro I, tal que 0 ≤ I ≤ tamanho - 1 da lista de palavras, que aponta a posição da primeira palavra da frase.O segundo parâmetro é uma lista de palavras(tamanho maior ou igual a 1) onde cada palavra é acrescida do sublinhado em seguida de um número inteiro que aponta a posição da próxima palavra.
+
+// Se esse número estiver entre 0 e tamanho - 1 da lista de palavras, então ele aponta para a próxima palavra; se ele for -1, significa que a palavra atual é a última da frase, que está completa agora; se ele for maior ou igual ao tamanho da lista, significa que há um erro e não há mensagem para descriptografar.Não haverá ciclos(por exemplo: uma palavra aponta para a próxima, que aponta para a anterior de novo).
+
+//     Saída
+// Caso exista uma mensagem criptografada a saída deve retorná - la, caso contrário deve retornar o texto "erro".
+
+//     Ex.:
+// Entrada: (3, ['sensacional_2', 'demais_-1', 'é_1 ', 'voce_2', 'melhor_1', 'gratidao_0'])
+// Saída: "voce é demais"
+
+// Entrada: (3, ['nao_2', 'vai_7', 'que_1 ', 'sera_2', 'melhor_1', 'gratiluz_0'])
+// Saída: "erro"
+
+function descriptografar(inicio, arr) {
+
+    let first = arr[inicio].split('_')[0];
+    let next = parseInt(arr[inicio].split('_')[1]);
+    let phrase = [first];
+    let stop = false
+
+    for (let i = 0; stop === false; i++) {
+        if (next >= arr.length) { return 'erro' }
+        if (next !== -1) {
+            phrase.push(arr[next].split('_')[0])
+            next = parseInt(arr[next].split('_')[1])
+            if (next > arr.length) { return 'erro' }
+        } else {
+            return phrase.join(' ')
+            stop = true;
+        };
+    }
+
 }
