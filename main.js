@@ -1448,7 +1448,6 @@ function figurinhasFaltantes(n, lst) {
 
 // ord = [3, 2, 1, 4, 5], instrucoes = [1, 0, 0, 1], mov = [[1, 1, 1, 1, 1], [0, 1, 0, 1, 0], [0, 1, 0], [0, 1]] => Deve retornar que o ganhador foi 5
 
-
 function descobreGanhador(ord, instrucoes, mov) {
     let vencedores = ord
     for (let i = 0; i < mov.length; i++) {
@@ -1459,4 +1458,46 @@ function descobreGanhador(ord, instrucoes, mov) {
         }
     }
     return vencedores[0]
+}
+
+// Ponto cruz - credo
+// Dado um tabuleiro representado pela matriz T[12][12] sua missão é marcar com a letra X apenas as posições inseridas determinadas pelo usuário.
+
+//     Entrada
+// A entrada é composta por um parâmetro numérico inteiro C, tal que 0 ≤ C ≤ 11, que representa a coluna que irá receber as marcações, o segundo parâmetro é uma lista contendo dois números inteiros: I e F, tal que 0 ≤ I ≤ 11, 0 ≤ F ≤ 11, I ≤ F, esses números representam as linhas que devem ser marcadas com a letra 'x'.Todas as células começando na linha I e terminando na F(sempre na coluna C) devem ser marcadas.
+
+//     Saída
+// A saída deve printar no console o tabuleiro T marcado com a letra X nas posições informadas e com um sublinhado nas posições não marcadas.Ou seja, sua função não deve retornar nada, ela deve usar console.log para escrever no console.Isso implica que não pode haver console.log de "debug", senão ele interferirá na checagem da resposta.
+
+//     Ex.:
+// Entrada: (1, [1, 4])
+// Saída(observe que são exatamente 12 linhas e que cada linha tem 12 caracteres sendo "_" ou "x"):
+
+// ____________
+// _x__________
+// _x__________
+// _x__________
+// _x__________
+// ____________
+// ____________
+// ____________
+// ____________
+// ____________
+// ____________
+
+const coluna = 1
+const arr = [1, 4]
+function desenhar(coluna, arr) {
+    for (let y = 0; y < 12; y++) {
+        let line = []
+        for (let x = 0; x < 12; x++) {
+            if (coluna === x && y >= arr[0] && y <= arr[1]) {
+                line.push("x")
+            } else {
+                line.push("_")
+            }
+        }
+        console.log(line.join(''))
+        line = []
+    }
 }
