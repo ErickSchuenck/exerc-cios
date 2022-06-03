@@ -1287,7 +1287,21 @@ function checkPosition(A, B, C, D, pontos) {
 // Saída: :)
 
 function jogar(ponte, passos) {
+    for (let i = 0; i < passos.length; i++) {
+        let caminhoDaEsquerda = ponte[i][0]
+        let caminhoDaDireita = ponte[i][1]
+        let direção;
+        if (passos[i] === 0) { direção = 'esquerda' }
+        if (passos[i] === 1) { direção = 'direita' }
 
+        if (direção === 'direita' && caminhoDaDireita === false) {
+            return ':('
+        }
+        if (direção === 'esquerda' && caminhoDaEsquerda === false) {
+            return ':('
+        }
+    }
+    return ':)'
 }
 
 // O melhor salgado de todos os tempos, no turno da manhã
@@ -1344,3 +1358,92 @@ function contaSalgado(arr) {
     }
     return [c, r, p]
 }
+
+// O troco pode ficar pra você
+// Sua mãe passou uma lista de compras para ir buscar no mercadinho do bairro, e ela foi bem clara que você deveria trazer todos os itens da lista ou o máximo possível deles seguindo a ordem de prioridade.Para te dar um incentivo, ela disse que o troco poderia ficar para você.Empolgado com a ideia de comprar tudo em balas, você aceita a missão.Chegando no mercadinho, você descobre que sua mãe havia ligado momentos antes e passado a lista de compras para o atendente, que anotou os preços de cada produto em uma lista, seguindo a ordem ditada por sua mãe.
+
+// Nesse momento, você percebe que talvez não haverá troco e tem a brilhante ideia de criar um programa que verifica essa possibilidade para você, assim sempre que sua mãe pedir novamente para que você vá ao mercado você poderá verificar se irá sobrar um troco.
+
+// Seu programa deve receber duas listas, a primeira de ítens de compra, a segunda com os preços seguindo a ordem dos ítens da lista de compras, e por fim o valor do dinheiro recebido.Seu programa irá mostrar a lista de ítens comprados com o valor dado.Os preços dos ítens e dinheiro total podem ser valores quebrados(ex: 3.5), mas serão positivos.A lista de compras sempre terá pelo menos 1 item.
+
+//     Exemplo:
+
+// lista = ['detergente', 'sal', 'macarrao', 'pao']; precos = [3.00, 1.00, 4.0, 12.0]; total = 9 => Deve retornar['detergente, 'sal', 'macarrao']
+
+function listaCompras(lista, precos, total) {
+
+
+}
+
+
+
+// Organizando prateleiras
+// Martha é proprietária de um e - commerce de produtos importados e quer melhorar o site da sua loja, pensando nisso ela elaborou uma forma de instigar os clientes a gastarem mais.A solução é uma prateleira virtual onde ela irá exibir produtos mais baratos acompanhados por um produto mais caro.Desta forma ela sempre irá mostrar um produto mais caro enquanto mantém a percepção dos seus clientes que a loja vende muitos produtos baratos, já que ela também estará exibindo esses produtos.
+
+// Martha então definiu que a melhor organização é um grupo de três produtos, onde dois são baratos e um é caro.Ela definiu também que os produtos devem ser organizados por preço, ou seja, a primeira prateleira deve mostrar os dois produtos mais baratos com o produto mais caro da loja, a segunda prateleira deve mostrar os terceiro e quarto produtos mais baratos acompanhados do segundo produto mais caro, e assim por diante.
+
+
+
+//     Entrada: Uma lista(tamanho T) de produtos com valores numéricos N que representam o preço, tal que, 1 <= N <= 20. T não necessariamente é múltiplo de 3, e caso não seja, a última prateleira vai ficar com os ítens que sobrarem(se sobrar um item só, a última prateleira terá só ele; se sobrarem 2 ítens, a última prateleira terá o de menor preço primeiro).
+
+
+
+// Saída: Uma lista de listas, onde cada lista interna possui tamanho 3(exceto a úlltima em alguns casos), sendo os dois primeiros itens com menores valores e o terceiro com o maior valor.As próximas listas internas devem obedecer a mesma regra, porém considerando os menores e maior valor excluindo os itens inseridos na lista anterior.
+
+
+
+//     Ex: [10, 1, 2, 1] => Deve retornar[[1, 1, 10], [2]]
+
+// -----------------------------
+
+// Álbum da Copa
+// Em ano de Copa do Mundo, o álbum de figurinhas oficial é sempre um grande sucesso entre as crianças e adolescentes.
+
+// Para quem não conhece, o álbum contém espaços numerados de 1 a N para colar as figurinhas; cada figurinha, também numerada de 1 a N, é uma pequena foto de um jogador de uma das seleções que disputará a Copa do Mundo.
+
+// O objetivo é completar o álbum, de modo a colar todas as figurinhas nos seus respectivos espaços.
+
+// As figurinhas são vendidas em envelopes fechados, de forma que o comprador não sabe quais figurinhas está comprando, e pode ocorrer de ao abrir o pacote encontrar uma figurinha que ele já possui no álbum colecionando assim uma figurinha repetida.
+
+// Para ajudar os usuários, a empresa responsável pela venda do álbum quer criar um aplicativo que permita gerenciar facilmente as figurinhas que faltam para completar o álbum e está solicitando a sua ajuda.
+
+// Dados o número total n de espaços do álbum, e uma lista das figurinhas já compradas(que pode conter figurinhas repetidas), sua tarefa é determinar quais figurinhas faltam para completar o álbum e retornar uma lista com essas figurinhas em ordem crescente.
+
+// Complete a função figurinhasFaltantes ao lado, sabendo que os parâmetros representam respectivamente:
+
+// n: O número total de figurinhas que existem no álbum.n estará entre 1 e 50 mil
+// lst: A lista de figurinhas compradas(coladas no álbum e repetidas).O tamanho de lst estará entre 1 e 50 mil
+
+// Ex: figurinhasFaltantes(n, lst)
+// n = 10, lst = [5, 8, 3] => Deve retornar[1, 2, 4, 6, 7, 9, 10]
+// n = 5, lst = [3, 3, 2, 3, 3, 3] => Deve retornar[1, 4, 5]
+
+function figurinhasFaltantes(n, lst) {
+    let arr = [];
+    for (let i = 1; i <= n; i++) {
+        if (lst.includes(i)) { }
+        else {
+            arr.push(i)
+        }
+    }
+    return arr
+}
+
+
+// Morto ou Vivo
+// Toda criança certamente já brincou de "morto/vivo".A brincadeira é dirigida por um adulto, que comanda as crianças.A brincadeira é composta de rodadas.No início, os participantes são organizados pelo chefe em fila única.A cada rodada o adulto grita "morto" ou "vivo".O participante que se confunde, e não segue a ordem correta é eliminado, deixando o seu lugar na fila.Os participantes remanescentes agrupam - se novamente em fila única, preenchendo as posições dos participantes eliminados, mas mantendo suas posições relativas.O jogo continua até que uma rodada seja composta por exatamente um participante.Tal participante é dito vencedor do jogo.
+
+// Por exemplo, considere que a brincadeira inicie com cinco participantes, identificados por números inteiros de 1 a 5, e que o chefe organize a fila na ordem[3, 2, 1, 4, 5].Se na primeira rodada forem eliminados os participantes 2 e 4, a fila na segunda rodada será formada por[3, 1, 5]; se na segunda rodada for eliminado o participante 1, a fila da terceira rodada será formada por[3, 5].Se na terceira rodada o participante 3 for eliminado, o vencedor da brincadeira será o participante 5.
+
+// Sua tarefa é escrever um programa que determine o vencedor de uma partida de "morto/vivo", a partir da informação das ordens dadas pelo chefe e das ações executadas pelos participantes em cada rodada.
+
+//     Entrada:
+// O programa recebe 3 entradas.Uma lista com a sequência, ou seja, a ordem em que as crianças estão alinhadas no ínicio da partida, uma lista contendo a sequência de instruções que o adulto deu, sendo 0 representando "morto" e 1 representando "vivo", e uma lista de listas contendo o movimento de cada criança em cada rodada(na ordem em que aparecem na fila).A entrada sempre garantirá que permaneça um único participante ao fim do jogo(nem mais, nem menos).No início, sempre haverá pelo menos 2 crianças, e o jogo sempre terá pelo menos 1 rodada.
+
+//     Saída:
+// Seu programa deve retornar o número correspondente ao identificador do vencedor da partida.
+
+//     Ex:
+// ord = [2, 1], instrucoes = [1, 1], mov = [[1, 1], [1, 0]] => Deve retornar que o ganhador foi 2: na primeira rodada, o chefe ordenou "1" e as duas crianças acertaram; na segunda rodada, o chefe ordenou "1" de novo, mas agora a primeira criança na fila acertou(executou "1") e a segunda errou(executou "0"), daí foi eliminada e a fila ficou[2], por isso o ganhador é 2.
+
+// ord = [3, 2, 1, 4, 5], instrucoes = [1, 0, 0, 1], mov = [[1, 1, 1, 1, 1], [0, 1, 0, 1, 0], [0, 1, 0], [0, 1]] => Deve retornar que o ganhador foi 5
