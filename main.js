@@ -1538,3 +1538,142 @@ function descriptografar(inicio, arr) {
     }
 
 }
+
+// Outdoor Bloqueado
+// John o fazendeiro, durante longas sessões de ordenha, percebeu que sua vaca Bessie gosta de olhar pela janela do seu celeiro em direção a dois grandes outdoors retangulares de propaganda que existem do outro lado da rua e que dizem: “Alfafa incrivelmente apetitosa do fazendeiro Alex” e “Bons cereais do fazendeiro Erick”.
+
+// As fotos desses dois produtos, encontrados em rações para vacas, vistas nos outdoors parecem muito mais saborosos para Bessie do que a grama da fazenda de John.
+
+// Um dia, enquanto Bessie olhava pela janela em direção aos outdoors, ela se assustou ao ver um grande caminhão retangular estacionando do outro lado da rua.Na lateral da carroceria do caminhão existia um anúncio “Excelentes bifes do fazendeiro Beto”, que Bessie não entendeu muito bem, mas ela ficou bem preocupada com o fato do caminhão acabar estacionando bem em frente às suas duas placas favoritas, bloqueando a sua visão.
+
+// Dada a localização dos dois outdoors e a localização do caminhão, calcule a área total combinada dos dois outdoors que ainda fica visível para Bessie.
+
+// É possível que o caminhão não atrapalhe em nada a visão de Bessie, atrapalhe uma parte da visão de Bessie, ou bloqueie totalmente a visão de Bessie dos outdoors.
+
+//     Entradas:
+// outdoor1 = lista com 4 inteiros separados x1, y1, x2, y2, onde(x1, y1) representa o ponto embaixo à esquerda do outdoor1 e(x2, y2) representa o ponto em cima à direita do outdoor1
+// outdoor2 = lista com 4 inteiros separados x1, y1, x2, y2, onde(x1, y1) representa o ponto embaixo à esquerda do outdoor2 e(x2, y2) representa o ponto em cima à direita do outdoor2
+// caminhao = lista com 4 inteiros separados x1, y1, x2, y2, onde(x1, y1) representa o ponto embaixo à esquerda do caminhão e(x2, y2) representa o ponto em cima à direita do caminhão
+
+
+// Intervalos e observações:
+
+// -1000 ≤ x1 ≤ 1000
+// - 1000 ≤ y1 ≤ 1000
+// - 1000 ≤ x2 ≤ 1000
+// - 1000 ≤ y2 ≤ 1000
+// x2 ≥ x1
+// y2 ≥ y1
+// Os outdoors de anúncios 1 e 2, do ponto de vista de Bessie, nunca têm nenhum tipo de sobreposição entre eles.
+
+function areaVisivel(outdoor1, outdoor2, caminhao) {
+
+}
+
+// Função de Cálculo de String
+// Telma ama trabalhar com strings.Ela tem uma string t com ela, e o valor de uma string s avaliado em uma função f que pode ser descrita pela seguinte equação:
+
+
+
+// f(s) = | s | * (Número de vezes que s ocorre em t)
+
+// Telma quer saber o maior valor possível para f(s), entre todas as possíveis substrings(s) de t.Você consegue ajudá - la ?
+
+//     Entrada :
+//     string t formada somente por letras a...z minúsculas
+
+// Saída:
+// O valor máximo de f(s) entre todas as possíveis substrings(s) da string t.
+
+
+//     Intervalos:
+// 1≤ | t | ≤ 10 ^ 5
+
+
+// Exemplo 1:
+// t = ‘aaaaaa’ ⇒ Deve retornar 12,
+
+
+//     Explicação:
+// Todas as substrings s: [ ‘a’, ‘aa’, ‘aaa’, ‘aaaa’, ‘aaaaa’, ‘aaaaaa’]
+// Avaliações da função f:
+// f('a') = 6(tamanho 1 e aparece 6 vezes)
+// f('aa') = 10(tamanho 2 e aparece 5 vezes)
+// f('aaa') = 12(tamanho 3 e aparece 4 vezes)
+// f('aaaa') = 12(tamanho 4 e aparece 3 vezes)
+// f('aaaaa') = 10(tamanho 5 e aparece 2 vezes)
+// f('aaaaaa') = 6(tamanho 6 e aparece 1 vez)
+// Exemplo 2:
+
+// t = 'abcabcddd' ⇒ Deve retornar 9
+
+
+// Explicação:
+// Algumas substrings s: ["a", "b", "c", "ab", "abc", "ddd", ...]
+// Algumas avaliações da função f:
+// f("a") = 2
+// f("b") = 2
+// f("c") = 2
+// f("ab") = 4
+// f("bc") = 4
+// f("ddd") = 3
+// f("abc") = 6
+// ...
+// f("abcabcddd") = 9
+
+function maxValueOfF(t) {
+
+}
+
+// Sapatênis Perdidos
+// A squad de Sapatos, Sapatilhas e Sapatênis da Faria Lima fez um grande pedido de sapatênis de diversos tamanhos. No entanto, houve uma falha no processo de empacotamento e nem todas as caixas contêm um par correto, isto é, sapatênis do mesmo tamanho para cada pé. O Head da squad pediu que todos devolvessem os sapatênis nas suas respectivas caixas.
+
+// Quando o Head descobriu que você sabe programação ele ficou empolgado e solicitou que você escrevesse um programa que forme pares possíveis de sapatênis.
+
+// Entrada
+// A entrada consiste em uma lista de listas, cada lista interna representa um lote de sapatênis. Cada lote é formado por uma quantidade N de sapatênis, tal que 2 ≤ N ≤ 100, sendo N um número inteiro par. Cada sapatênis é formado por um valor textual com um número M, tal que 30 ≤ M ≤ 60 separado por um espaço de um valor L, sendo 'E' ou 'D'
+
+// Saída
+// Seu programa deve retornar uma lista de valores inteiros, onde cada valor representa a quantidade de pares possíveis em cada lote respectivamente.Sabendo que para formar um par possível os sapatênis devem ter o mesmo tamanho M e uma unidade com L = 'E' e outra L = 'D', formando um par do mesmo tamanho para o pé esquerdo e outro para o pé direito.
+
+//     Ex.:
+// Entrada: lst = [['40 D', '41 E', '41 D', '40 E'], ['38 E', '38 E', '40 D', '38 D', '40 D', '37 E']]
+
+// Saída: [2, 1]
+
+let arrTeste = [
+    ['40 D', '41 E', '41 D', '40 E'],
+    ['38 E', '38 E', '40 D', '38 D', '40 D', '37 E']
+]
+
+function formarPar(arr) {
+    let pares = [];
+    for (let i = 0; i < arr.length; i++) {
+        caixa = arr[i]
+        let matchs = 0;
+        let blacklist = []
+        for (let j = 0; j < caixa.length; j++) {
+            let unidade = caixa[j]
+            let lado = unidade.split('').pop()
+            let tamanho = unidade.split('').slice(0, 2).join('')
+
+            for (let k = 0; k < caixa.length; k++) {
+                let ladoComparativo = caixa[k].split('').pop()
+                let tamanhoComparativo = caixa[k].split('').slice(0, 2).join('')
+
+                if (k !== j
+                    && !blacklist.includes(j)
+                    && !blacklist.includes(k)
+                    && ladoComparativo !== lado
+                    && tamanhoComparativo === tamanho
+                ) {
+                    matchs = matchs + 1;
+                    blacklist.push(k, j)
+                }
+            }
+        }
+        pares.push(matchs)
+        matchs = 0;
+    }
+    return pares;
+}
