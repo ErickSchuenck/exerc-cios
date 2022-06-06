@@ -1570,61 +1570,6 @@ function areaVisivel(outdoor1, outdoor2, caminhao) {
 
 }
 
-// Função de Cálculo de String
-// Telma ama trabalhar com strings.Ela tem uma string t com ela, e o valor de uma string s avaliado em uma função f que pode ser descrita pela seguinte equação:
-
-
-
-// f(s) = | s | * (Número de vezes que s ocorre em t)
-
-// Telma quer saber o maior valor possível para f(s), entre todas as possíveis substrings(s) de t.Você consegue ajudá - la ?
-
-//     Entrada :
-//     string t formada somente por letras a...z minúsculas
-
-// Saída:
-// O valor máximo de f(s) entre todas as possíveis substrings(s) da string t.
-
-
-//     Intervalos:
-// 1≤ | t | ≤ 10 ^ 5
-
-
-// Exemplo 1:
-// t = ‘aaaaaa’ ⇒ Deve retornar 12,
-
-
-//     Explicação:
-// Todas as substrings s: [ ‘a’, ‘aa’, ‘aaa’, ‘aaaa’, ‘aaaaa’, ‘aaaaaa’]
-// Avaliações da função f:
-// f('a') = 6(tamanho 1 e aparece 6 vezes)
-// f('aa') = 10(tamanho 2 e aparece 5 vezes)
-// f('aaa') = 12(tamanho 3 e aparece 4 vezes)
-// f('aaaa') = 12(tamanho 4 e aparece 3 vezes)
-// f('aaaaa') = 10(tamanho 5 e aparece 2 vezes)
-// f('aaaaaa') = 6(tamanho 6 e aparece 1 vez)
-// Exemplo 2:
-
-// t = 'abcabcddd' ⇒ Deve retornar 9
-
-
-// Explicação:
-// Algumas substrings s: ["a", "b", "c", "ab", "abc", "ddd", ...]
-// Algumas avaliações da função f:
-// f("a") = 2
-// f("b") = 2
-// f("c") = 2
-// f("ab") = 4
-// f("bc") = 4
-// f("ddd") = 3
-// f("abc") = 6
-// ...
-// f("abcabcddd") = 9
-
-function maxValueOfF(t) {
-
-}
-
 // Sapatênis Perdidos
 // A squad de Sapatos, Sapatilhas e Sapatênis da Faria Lima fez um grande pedido de sapatênis de diversos tamanhos. No entanto, houve uma falha no processo de empacotamento e nem todas as caixas contêm um par correto, isto é, sapatênis do mesmo tamanho para cada pé. O Head da squad pediu que todos devolvessem os sapatênis nas suas respectivas caixas.
 
@@ -1640,11 +1585,6 @@ function maxValueOfF(t) {
 // Entrada: lst = [['40 D', '41 E', '41 D', '40 E'], ['38 E', '38 E', '40 D', '38 D', '40 D', '37 E']]
 
 // Saída: [2, 1]
-
-let arrTeste = [
-    ['40 D', '41 E', '41 D', '40 E'],
-    ['38 E', '38 E', '40 D', '38 D', '40 D', '37 E']
-]
 
 function formarPar(arr) {
     let pares = [];
@@ -1676,4 +1616,162 @@ function formarPar(arr) {
         matchs = 0;
     }
     return pares;
+}
+
+// Função de Cálculo de String
+// Telma ama trabalhar com strings.Ela tem uma string t com ela, e o valor de uma string s avaliado em uma função f que pode ser descrita pela seguinte equação:
+
+// f(s) = | s | * (Número de vezes que s ocorre em t)
+
+// Telma quer saber o maior valor possível para f(s), entre todas as possíveis substrings(s) de t.Você consegue ajudá - la ?
+
+//     Entrada :
+//     string t formada somente por letras a...z minúsculas
+// Saída:
+
+// O valor máximo de f(s) entre todas as possíveis substrings(s) da string t.
+
+
+//     Intervalos:
+// 1≤ | t | ≤ 10 ^ 5
+
+
+// Exemplo 1:
+// t = ‘aaaaaa’ ⇒ Deve retornar 12,
+
+
+//     Explicação:
+// Todas as substrings s: [ ‘a’, ‘aa’, ‘aaa’, ‘aaaa’, ‘aaaaa’, ‘aaaaaa’]
+// Avaliações da função f:
+// f('a') = 6(tamanho 1 e aparece 6 vezes)
+// f('aa') = 10(tamanho 2 e aparece 5 vezes)
+// f('aaa') = 12(tamanho 3 e aparece 4 vezes)
+// f('aaaa') = 12(tamanho 4 e aparece 3 vezes)
+// f('aaaaa') = 10(tamanho 5 e aparece 2 vezes)
+// f('aaaaaa') = 6(tamanho 6 e aparece 1 vez)
+// Exemplo 2:
+
+// t = 'abcabcddd' ⇒ Deve retornar 9
+
+// Explicação:
+
+// Algumas substrings s: ["a", "b", "c", "ab", "abc", "ddd", ...]
+
+// Algumas avaliações da função f:
+// f("a") = 2
+// f("b") = 2
+// f("c") = 2
+// f("ab") = 4
+// f("bc") = 4
+// f("ddd") = 3
+// f("abc") = 6
+// ...
+// f("abcabcddd") = 9
+
+let string = 'abcabcddd';
+
+function maxValueOfF(t) {
+    let substrings = [];
+    for (let i = 0; i < t.length; i++) {
+        for (let j = i + 1; j <= t.length; j++) {
+            substrings.push(t.substring(i, j));
+        }
+    }
+    substrings = [... new Set(substrings)];
+    let maxValue = 0;
+    for (let i = 0; i < substrings.length; i++) {
+        let value = 0;
+        for (let j = 0; j < t.length; j++) {
+            if (t.substring(j, j + substrings[i].length) === substrings[i]) {
+                value += substrings[i].length;
+            }
+        }
+        maxValue = Math.max(maxValue, value);
+    }
+    return maxValue;
+}
+
+// Quadro de Placares
+// Um jogador quer melhorar sua pontuação e subir para a primeira colocação de um jogo online, e ele pode acompanhar sua evolução pelo quadro de placares de líderes.O quadro de líder usa um sistema de ranqueamento denso, isto é:
+
+// Quanto maior o seu placar, maior é sua posição no ranking.O jogador com o maior placar é o primeiro na lista de líderes, e é ranqueado na posição 1.
+
+// Jogadores que têm o mesmo placar ocupam a mesma posição, e o(s) jogador(es) abaixo desses, que têm placar inferior recebem a próxima posição disposta pelo ranque.
+
+
+//     Exemplo 1:
+// quadroPlacaresLideres = [100, 90, 90, 80]
+// placaresJogador = [70, 80, 105]
+
+// O ranqueamento do quadroPlacaresLideres é[1, 2, 2, 3], porque existem dois placares iguais de jogadores diferentes e por isso dois jogadores ocupam o segundo lugar.O ranqueamento relativo dos placaresJogador, ao quadroPlacaresLideres é[4, 3, 1].Porque com seu primeiro placar ele ficaria na quarta posição, com seu segundo placar empatado com o terceiro do quadro de líderes, e com seu último placar, em primeiro do quadro de líderes.
+
+// Descrição da Função:
+// Complete a função subindoNoQuadroDeLideres, ela recebe os seguintes parâmetros:
+
+// placarLideres: Lista de inteiros contendo os placares do quadro de líderes.Tamanho[n].
+//     placarJogador: Lista de inteiros contendo uma sequência de placares do jogador.Tamanho[m].
+
+
+//         Retorno:
+// Ela deve retornar uma lista de inteiros, contendo as posições relativas de cada placar do jogador ao quadro de placares dos líderes.Essa lista deve ter tamanho[m].
+
+
+
+// Intervalos e Observações:
+// 1 ≤ n ≤ 10 ^ 6
+// 1 ≤ m ≤ 10 ^ 6
+// 0 ≤ placarLideres[i] ≤ 200, com 0≤i≤n
+// 0 ≤ placarJogador[j] ≤ 200, com 0≤j≤m
+// A lista placarLideres está em ordem decrescente.
+// A lista placarJogadores está em ordem crescente.
+
+
+// Mais Exemplos:
+// placarLideres = [100, 90, 80, 80, 65, 55], placarJogador = [30, 50, 55, 55, 80, 98, 105] ⇒ Deve retornar[6, 6, 5, 5, 3, 2, 1]
+// placarLideres = [150, 120, 80, 60], placarJogador = [30, 70, 80, 100, 120, 130, 150, 160, 180] ⇒ Deve retornar[5, 4, 3, 3, 2, 2, 1, 1, 1]
+
+// Desafio
+// A maioria dos testes desta questão usam valores pequenos de n e m(menos que 100).Mas existe um teste de desafio no qual n e m são da ordem de 50 mil.Nessa ordem de grandeza, dependendo da estratégia de implementação do algoritmo subindoNoQuadroDeLideres, ele pode ser muuuuuito lento e demorar mais de 2 segundos para terminar.
+
+// Mas existe pelo menos 1 maneira "esperta" de programar esse algoritmo que o torna muito rápido mesmo quando n e m são grandes.O desafio consiste em encontrar uma dessas maneiras espertas de programar o algoritmo.A função aceitoDesafio(veja o código inicial) decide se você quer aceitar esse desafio ou não(ele é opcional).Se ela retornar true, então você está aceitando o desafio e 1 dos testes automatizados vai executar sua subindoNoQuadroDeLideres com valores grandes de n e m para testar se o algoritmo é rápido mesmo.Por outro lado, se a aceitoDesafio retornar false, então você não quer participar do desafio e esse caso de teste vai te deixar passar sem testar a rapidez do seu algoritmo.Nenhum outro caso de teste será influenciado pela aceitoDesafio.
+
+// Essa diferença gritante de velocidade será assunto mais detalhado do módulo seguinte, onde veremos a história completa.
+
+function subindoNoQuadroDeLideres(placarLideres, placarJogador) {
+
+}
+
+function aceitoDesafio() {
+    return true;
+}
+
+// Onde estou ?
+//     Ao longo da estrada existem N fazendas(1≤N≤100) em fila.As fazendas infelizmente não têm o número da casa, tornando difícil para o fazendeiro John descobrir sua localização ao longo da estrada.
+
+// No entanto, cada fazenda tem uma caixa de correio colorida na frente, então o fazendeiro John espera que, se ele olhar para as cores das caixas de correio mais próximas a ele, ele possa determinar onde está.
+
+// A cor de cada caixa de correio é especificada por uma letra no intervalo A...Z, de modo que a sequência de N caixas de correio no caminho pode ser representada por uma sequência de comprimento N contendo letras no intervalo A...Z.Pode haver várias caixas de correio com a mesma cor.O fazendeiro John quer saber qual é o menor valor de K de modo que, se ele olhar para qualquer sequência de K caixas de correio consecutivas, ele possa determinar de maneira única a localização dessa sequência ao longo da estrada.
+
+// Por exemplo, suponha que a sequência de caixas de correio ao longo da estrada seja 'ABCDABC'.O fazendeiro John não pode definir K = 3, pois se ele vir 'ABC', existem dois locais possíveis ao longo da estrada onde esse conjunto consecutivo de cores pode estar.O menor valor de K que funciona é K = 4, pois se ele olhar para qualquer conjunto consecutivo de 4 caixas de correio, essa sequência de cores determina de maneira única sua posição ao longo da estrada.
+
+// Escreva uma função ondeEstou(caixas) que recebe uma string descrevendo a sequência de caixas e retorne o menor valor possível de K.
+
+let estrada = 'ABCDABC';
+
+function ondeEstou(caixas) {
+    let count = 0;
+    let final = 0;
+    for (let i = 0; i < caixas.length; i++) {
+        for (let j = 1; j < caixas.length; j++) {
+            if (caixas[i] === caixas[j]) {
+                if (count < 1) { count = 1 }
+                for (let k = 0; k = caixas.length - j; k++) {
+                    if (caixas[i + k] === caixas[j + k]) {
+                        if (count < 2) { count = 2 }
+                    }
+                }
+            }
+        }
+    }
+    return count;
 }
